@@ -1,14 +1,19 @@
-A, B, C = [float(x) for x in input().split(" ")]
+valores = list(map(float, input().split()))
 
-if (A >= (B + C)):
+valores.sort(reverse=True)
+
+A, B, C = valores
+
+if A >= B + C:
     print("NAO FORMA TRIANGULO")
-    if((A*A) == ((B*B) + (C*C))):
+else:
+    if A**2 == B**2 + C**2:
         print("TRIANGULO RETANGULO")
-    if((A*A) > ((B*B) + (C*C))):
+    elif A**2 > B**2 + C**2:
         print("TRIANGULO OBTUSANGULO")
-    if((A*A) < ((B*B) + (C*C))):
-        print("TRIANGULO ACTUANGULO")
-    if(A == B == C):
+    elif A**2 < B**2 + C**2:
+        print("TRIANGULO ACUTANGULO")
+    if A == B and B == C:
         print("TRIANGULO EQUILATERO")
-    if(A == C or A == B or B == C):
+    elif A == B or B == C:
         print("TRIANGULO ISOSCELES")
