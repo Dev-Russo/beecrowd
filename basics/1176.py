@@ -1,18 +1,13 @@
-def fibonnachi(n):
-    if n <= 0:
-        return 0
-    elif n == 1:
-        return 1
-    else:
-        return fibonnachi(n - 1) + fibonnachi(n - 2)
+def main():
+    fib = [0, 1]
+    for i in range(2, 61):
+        fib.append(fib[i-1] + fib[i-2])
     
-count = 0
-cases = int(input())
-
-while count < cases:
-    valor = int(input())
+    t = int(input()) 
     
-    resultado = fibonnachi(valor)
-    print(f"Fib({valor}) = {resultado}")
+    for _ in range(t):
+        n = int(input())
+        print(f"Fib({n}) = {fib[n]}")
 
-    count += 1
+if __name__ == "__main__":
+    main()
